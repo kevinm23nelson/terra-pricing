@@ -25,8 +25,7 @@ const RetainerTiers: React.FC = () => {
       tooltipContent: `• Basic: 10+ hours per month
       - Standard: 20+ hours per month
       - Premium: 30+ hours per month
-      - Flexible scheduling for optimal support coverage
-      - Unused hours do not roll over`,
+      - Flexible scheduling for optimal support coverage`,
       basic: true,
       standard: true,
       premium: true,
@@ -248,7 +247,6 @@ const RetainerTiers: React.FC = () => {
             <h4 className="font-bold mb-2">Additional Notes:</h4>
             <ul className="list-disc list-inside space-y-2">
               <li className="text-sm">All tiers include monthly detailed reports of work completed</li>
-              <li className="text-sm">Unused hours do not roll over to the next month</li>
               <li className="text-sm">Additional hours available at standard hourly rate</li>
               <li className="text-sm">Premium tier includes priority handling for all requests</li>
             </ul>
