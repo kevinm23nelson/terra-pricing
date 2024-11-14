@@ -11,7 +11,7 @@ import {
 interface RetainerFeature {
   name: string;
   description: string;
-  tooltipContent: string; // Detailed explanation for tooltip
+  tooltipContent: string;
   basic: boolean;
   standard: boolean;
   premium: boolean;
@@ -163,110 +163,94 @@ const RetainerTiers: React.FC = () => {
 
   return (
     <TooltipProvider>
-      <Card className="w-full max-w-6xl mt-8">
-        <CardHeader>
-          <CardTitle>Monthly Retainer Options</CardTitle>
+      <Card className="w-full max-w-6xl mx-auto">
+        <CardHeader className="text-center">
+          <CardTitle className="text-xl sm:text-2xl">Monthly Retainer Options</CardTitle>
         </CardHeader>
-        <CardContent>
-          <div className="grid grid-cols-4 gap-4">
-            {/* Features Column */}
-            <div className="space-y-4">
-              {/* Adjust this height to match the pricing card headers */}
-              <div className="h-[132px]"></div>{" "}
-              {/* Changed from h-20 to h-[132px] */}
-              {features.map((feature, index) => (
-                <div
-                  key={index}
-                  className="flex items-center space-x-2 min-h-[28px]"
-                >
-                  <span className="font-medium">{feature.name}</span>
-                  <Tooltip>
-                    <TooltipTrigger asChild>
-                      <div className="inline-flex cursor-help">
-                        <HelpCircle size={16} className="text-gray-400" />
-                      </div>
-                    </TooltipTrigger>
-                    <TooltipContent className="max-w-xs">
-                      <div className="space-y-2">
-                        <p className="font-medium">{feature.description}</p>
-                        <div className="text-sm text-gray-600 whitespace-pre-line">
-                          {feature.tooltipContent}
-                        </div>
-                      </div>
-                    </TooltipContent>
-                  </Tooltip>
+        <CardContent className="p-2 sm:p-6">
+          <div className="overflow-x-auto">
+            <div className="inline-block min-w-full align-middle">
+              <div className="grid grid-cols-4 gap-4 min-w-[800px]">
+                {/* Features Column */}
+                <div className="space-y-4 mt-6">
+                  <div className="h-24"></div>
+                  {features.map((feature, index) => (
+                    <div key={index} className="flex items-center gap-2 pr-4 min-h-[28px]">
+                      <span className="font-medium text-sm sm:text-base whitespace-nowrap">{feature.name}</span>
+                      <Tooltip delayDuration={0}>
+                        <TooltipTrigger asChild>
+                          <div className="inline-flex flex-shrink-0 cursor-help">
+                            <HelpCircle size={16} className="text-gray-400" />
+                          </div>
+                        </TooltipTrigger>
+                        <TooltipContent side="right" className="max-w-xs">
+                          <div className="space-y-2">
+                            <p className="font-medium">{feature.description}</p>
+                            <div className="text-sm text-gray-800 whitespace-pre-line">
+                              {feature.tooltipContent}
+                            </div>
+                          </div>
+                        </TooltipContent>
+                      </Tooltip>
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
 
-            {/* Basic Tier */}
-            <div className="space-y-4">
-              <div className="text-center p-4 bg-gray-50 rounded-lg">
-                <h3 className="text-xl font-bold">Basic</h3>
-                <p className="text-2xl font-bold mt-2">$500</p>
-                <p className="text-sm text-gray-600 mt-1">per month</p>
-                <p className="text-sm font-medium text-gray-600 mt-1">
-                  10+ Hours
-                </p>
-              </div>
-              {features.map((feature, index) => (
-                <div key={index} className="flex justify-center min-h-[28px]">
-                  {renderCheck(feature.basic)}
+                {/* Basic Tier */}
+                <div className="space-y-4">
+                  <div className="text-center p-1 bg-gray-50 rounded-lg h-26 flex flex-col justify-center">
+                    <h3 className="text-lg sm:text-xl font-bold">Basic</h3>
+                    <p className="text-xl sm:text-2xl font-bold mt-2">$500</p>
+                    <p className="text-xs sm:text-sm text-gray-600 mt-1">per month</p>
+                    <p className="text-xs sm:text-sm font-medium text-gray-600">10+ Hours</p>
+                  </div>
+                  {features.map((feature, index) => (
+                    <div key={index} className="flex justify-center min-h-[28px] items-center">
+                      {renderCheck(feature.basic)}
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
 
-            {/* Standard Tier */}
-            <div className="space-y-4">
-              <div className="text-center p-4 bg-blue-50 rounded-lg border-2 border-blue-200">
-                <h3 className="text-xl font-bold text-blue-600">Standard</h3>
-                <p className="text-2xl font-bold mt-2">$750</p>
-                <p className="text-sm text-blue-600 mt-1">per month</p>
-                <p className="text-sm font-medium text-blue-600 mt-1">
-                  20+ Hours
-                </p>
-              </div>
-              {features.map((feature, index) => (
-                <div key={index} className="flex justify-center min-h-[28px]">
-                  {" "}
-                  {/* Added min-h-[28px] */}
-                  {renderCheck(feature.standard)}
+                {/* Standard Tier */}
+                <div className="space-y-4">
+                  <div className="text-center p-1 bg-blue-50 rounded-lg border-2 border-blue-200 h-26 flex flex-col justify-center">
+                    <h3 className="text-lg sm:text-xl font-bold text-blue-600">Standard</h3>
+                    <p className="text-xl sm:text-2xl font-bold mt-2">$750</p>
+                    <p className="text-xs sm:text-sm text-blue-600 mt-1">per month</p>
+                    <p className="text-xs sm:text-sm font-medium text-blue-600">20+ Hours</p>
+                  </div>
+                  {features.map((feature, index) => (
+                    <div key={index} className="flex justify-center min-h-[28px] items-center">
+                      {renderCheck(feature.standard)}
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
 
-            {/* Premium Tier */}
-            <div className="space-y-4">
-              <div className="text-center p-4 bg-purple-50 rounded-lg border-2 border-purple-200">
-                <h3 className="text-xl font-bold text-purple-600">Premium</h3>
-                <p className="text-2xl font-bold mt-2">$1,000</p>
-                <p className="text-sm text-purple-600 mt-1">per month</p>
-                <p className="text-sm font-medium text-purple-600 mt-1">
-                  30+ Hours
-                </p>
-              </div>
-              {features.map((feature, index) => (
-                <div key={index} className="flex justify-center min-h-[28px]">
-                  {" "}
-                  {/* Added min-h-[28px] */}
-                  {renderCheck(feature.premium)}
+                {/* Premium Tier */}
+                <div className="space-y-4">
+                  <div className="text-center p-1 bg-purple-50 rounded-lg border-2 border-purple-200 h-26 flex flex-col justify-center">
+                    <h3 className="text-lg sm:text-xl font-bold text-purple-600">Premium</h3>
+                    <p className="text-xl sm:text-2xl font-bold mt-2">$1,000</p>
+                    <p className="text-xs sm:text-sm text-purple-600 mt-1">per month</p>
+                    <p className="text-xs sm:text-sm font-medium text-purple-600">30+ Hours</p>
+                  </div>
+                  {features.map((feature, index) => (
+                    <div key={index} className="flex justify-center min-h-[28px] items-center">
+                      {renderCheck(feature.premium)}
+                    </div>
+                  ))}
                 </div>
-              ))}
+              </div>
             </div>
           </div>
 
           <div className="mt-8 p-4 bg-gray-50 rounded-lg">
             <h4 className="font-bold mb-2">Additional Notes:</h4>
-            <ul className="list-disc list-inside space-y-2 text-sm">
-              <li>
-                All tiers include monthly detailed reports of work completed
-              </li>
-              <li>Unused hours do not roll over to the next month</li>
-              <li>Additional hours available at standard hourly rate</li>
-              <li>Premium tier includes priority handling for all requests</li>
-              <li>
-                24/7 emergency support available for Standard and Premium tiers
-              </li>
+            <ul className="list-disc list-inside space-y-2">
+              <li className="text-sm">All tiers include monthly detailed reports of work completed</li>
+              <li className="text-sm">Unused hours do not roll over to the next month</li>
+              <li className="text-sm">Additional hours available at standard hourly rate</li>
+              <li className="text-sm">Premium tier includes priority handling for all requests</li>
             </ul>
           </div>
         </CardContent>
