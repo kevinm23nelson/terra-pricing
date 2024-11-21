@@ -300,7 +300,7 @@ const ServiceTiers: React.FC = () => {
               </li>
               <li className="text-sm">
                 All tiers will have their infrastructure containerized using
-                Docker and hosted/deployed using Terra's existing Node
+                Docker and hosted/deployed using Terras existing Node
                 infrastructure
               </li>
               <li className="text-sm">
