@@ -22,9 +22,7 @@ const RetainerTiers: React.FC = () => {
     {
       name: "Monthly Support Hours",
       description: "Dedicated support and development hours per month",
-      tooltipContent: `• Basic: 10+ hours per month
-      - Standard: 20+ hours per month
-      - Premium: 30+ hours per month
+      tooltipContent: `• Additional hours will be available past the monthly 10 hours at $50 an hour.
       - Flexible scheduling for optimal support coverage`,
       basic: true,
       standard: true,
@@ -79,30 +77,6 @@ const RetainerTiers: React.FC = () => {
       premium: true,
     },
     {
-      name: "Priority Response Time",
-      description: "24-hour response time for critical issues",
-      tooltipContent: `• Guaranteed 24-hour response time
-      - Priority ticket handling
-      - Direct access to support team
-      - Issue escalation system
-      - Emergency response protocol`,
-      basic: false,
-      standard: true,
-      premium: true,
-    },
-    {
-      name: "Weekend Support",
-      description: "Support availability during weekends for urgent issues",
-      tooltipContent: `• Weekend emergency support
-      - Extended support hours
-      - Critical issue resolution
-      - After-hours monitoring
-      - Holiday coverage available`,
-      basic: false,
-      standard: true,
-      premium: true,
-    },
-    {
       name: "Feature Enhancements",
       description: "Minor improvements and feature enhancements",
       tooltipContent: `• UI/UX improvements
@@ -138,18 +112,18 @@ const RetainerTiers: React.FC = () => {
       standard: false,
       premium: true,
     },
-    {
-      name: "Custom Development Projects",
-      description: "Dedicated time for new development projects",
-      tooltipContent: `• Custom feature development
-      - New system implementations
-      - Third-party integrations
-      - System expansion projects
-      - Technology upgrades`,
-      basic: false,
-      standard: false,
-      premium: true,
-    },
+    // {
+    //   name: "Custom Development Projects",
+    //   description: "Dedicated time for new development projects",
+    //   tooltipContent: `• Custom feature development
+    //   - New system implementations
+    //   - Third-party integrations
+    //   - System expansion projects
+    //   - Technology upgrades`,
+    //   basic: false,
+    //   standard: false,
+    //   premium: true,
+    // },
   ];
 
   const renderCheck = (included: boolean): JSX.Element => {
@@ -164,7 +138,7 @@ const RetainerTiers: React.FC = () => {
     <TooltipProvider>
       <Card className="w-full max-w-6xl mx-auto">
         <CardHeader className="text-center">
-          <CardTitle className="text-xl sm:text-2xl">Monthly Retainer Options</CardTitle>
+          <CardTitle className="text-xl sm:text-2xl">Monthly Retainer</CardTitle>
         </CardHeader>
         <CardContent className="p-2 sm:p-6">
           <div className="overflow-x-auto">
@@ -196,7 +170,7 @@ const RetainerTiers: React.FC = () => {
                 </div>
 
                 {/* Basic Tier */}
-                <div className="space-y-4">
+              {/*  <div className="space-y-4">
                   <div className="text-center p-1 bg-gray-50 rounded-lg h-26 flex flex-col justify-center">
                     <h3 className="text-lg sm:text-xl font-bold">Basic</h3>
                     <p className="text-xl sm:text-2xl font-bold mt-2">$500</p>
@@ -208,10 +182,10 @@ const RetainerTiers: React.FC = () => {
                       {renderCheck(feature.basic)}
                     </div>
                   ))}
-                </div>
+                </div> */}
 
                 {/* Standard Tier */}
-                <div className="space-y-4">
+              {/* <div className="space-y-4">
                   <div className="text-center p-1 bg-blue-50 rounded-lg border-2 border-blue-200 h-26 flex flex-col justify-center">
                     <h3 className="text-lg sm:text-xl font-bold text-blue-600">Standard</h3>
                     <p className="text-xl sm:text-2xl font-bold mt-2">$750</p>
@@ -223,15 +197,15 @@ const RetainerTiers: React.FC = () => {
                       {renderCheck(feature.standard)}
                     </div>
                   ))}
-                </div>
+                </div> */} 
 
                 {/* Premium Tier */}
                 <div className="space-y-4">
                   <div className="text-center p-1 bg-purple-50 rounded-lg border-2 border-purple-200 h-26 flex flex-col justify-center">
-                    <h3 className="text-lg sm:text-xl font-bold text-purple-600">Premium</h3>
+                    <h3 className="text-lg sm:text-xl font-bold text-purple-600">Advanced</h3>
                     <p className="text-xl sm:text-2xl font-bold mt-2">$1,000</p>
                     <p className="text-xs sm:text-sm text-purple-600 mt-1">per month</p>
-                    <p className="text-xs sm:text-sm font-medium text-purple-600">30+ Hours</p>
+                    <p className="text-xs sm:text-sm font-medium text-purple-600">10 Hours</p>
                   </div>
                   {features.map((feature, index) => (
                     <div key={index} className="flex justify-center min-h-[28px] items-center">
@@ -246,9 +220,9 @@ const RetainerTiers: React.FC = () => {
           <div className="mt-8 p-4 bg-gray-50 rounded-lg">
             <h4 className="font-bold mb-2">Additional Notes:</h4>
             <ul className="list-disc list-inside space-y-2">
-              <li className="text-sm">All tiers include monthly detailed reports of work completed</li>
+              <li className="text-sm">Monthly retainer includes feature enhancements and smaller feature expansion/development</li>
+              <li className="text-sm">Larger development/feature expansion will be structured through future software development contracts</li>
               <li className="text-sm">Additional hours available at standard hourly rate</li>
-              <li className="text-sm">Premium tier includes priority handling for all requests</li>
             </ul>
           </div>
         </CardContent>
